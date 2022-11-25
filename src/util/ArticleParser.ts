@@ -6,6 +6,10 @@ function transformHtml(html: string) {
   const url = $("[property='og:url']").attr("content") as string;
   const author = $("header p").text();
   const title = $("h2");
+  $("a[download]").each((_, element) => {
+    $(element).after($(element).html() as string);
+    $(element).remove();
+  });
   title.after(`<p>by ${author}</p>`);
 
   $("form").remove();
