@@ -3,7 +3,7 @@ import { NodeHtmlMarkdown } from "node-html-markdown";
 
 function transformHtml(html: string) {
   const $ = load(html);
-  const url = $("[property='og:url']").attr("content");
+  const url = $("[property='og:url']").attr("content") as string;
   const author = $("header p").text();
   const title = $("h2");
   title.after(`<p>by ${author}</p>`);
