@@ -20,6 +20,7 @@ export default function Command() {
       markdown={data?.markdown}
       actions={
         <ActionPanel>
+          <Action.OpenInBrowser url={data!.url} />
           <Action
             title="Get new article"
             shortcut={{
