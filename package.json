@@ -26,7 +26,6 @@
   "dependencies": {
     "@raycast/api": "^1.44.0",
     "@raycast/utils": "^1.4.8",
-    "canvas": "^2.10.2",
     "cheerio": "^1.0.0-rc.12",
     "node-html-markdown": "^1.2.2",
     "zustand": "^4.1.4"
