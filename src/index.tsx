@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Action, ActionPanel, Detail, Icon } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 import { convertArticleToMd } from "./util/ArticleParser";
+import MarkdownArticle from "./components/MarkdownArticle";
 
 export default function Command() {
   const [shouldFetch, setShouldFetch] = useState(true);
@@ -15,23 +15,11 @@ export default function Command() {
   }, [data]);
 
   return (
-    <Detail
+    <MarkdownArticle
       isLoading={isLoading}
-      markdown={data?.markdown}
-      actions={
-        <ActionPanel>
-          <Action.OpenInBrowser url={data!.url} />
-          <Action
-            title="Get new article"
-            shortcut={{
-              modifiers: ["cmd"],
-              key: "r",
-            }}
-            icon={{ source: Icon.RotateClockwise }}
-            onAction={() => setShouldFetch(true)}
-          />
-        </ActionPanel>
-      }
+      article={{ title: data?.title as string, url: data?.url as string }}
+      markdown={data?.markdown as string}
+      handleRefresh={() => setShouldFetch(true)}
     />
   );
 }

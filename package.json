@@ -22,7 +22,8 @@
     "@raycast/utils": "^1.4.8",
     "canvas": "^2.10.2",
     "cheerio": "^1.0.0-rc.12",
-    "node-html-markdown": "^1.2.2"
+    "node-html-markdown": "^1.2.2",
+    "zustand": "^4.1.4"
   },
   "devDependencies": {
     "@types/node": "18.8.3",

@@ -5,12 +5,15 @@ function formatHtml(html: string) {
   const $ = load(html);
   const url = $("[property='og:url']").attr("content") as string;
   const author = $("header p").text();
-  const title = $("h2");
+  const titleElement = $("h2");
+
+  // removes wrapper download link from images
   $("a[download]").each((_, element) => {
     $(element).after($(element).html() as string);
     $(element).remove();
   });
-  title.after(`<p>by ${author}</p>`);
+
+  titleElement.after(`<p>by ${author}</p>`);
 
   $("form").remove();
   $("header").remove();
@@ -21,6 +24,7 @@ function formatHtml(html: string) {
   return {
     markdown: NodeHtmlMarkdown.translate(article as string),
     url,
+    title: titleElement.text().trim().replace(/\n/g, "") as string,
   };
 }
 
