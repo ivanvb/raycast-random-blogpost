@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useFetch } from "@raycast/utils";
-import { convertArticleToMd } from "./util/ArticleParser";
+import { parseFetchResponse } from "./util/ArticleParser";
 import MarkdownArticle from "./components/MarkdownArticle";
 
 export default function Command() {
@@ -22,11 +22,4 @@ export default function Command() {
       handleRefresh={() => setShouldFetch(true)}
     />
   );
-}
-
-async function parseFetchResponse(response: Response) {
-  const html = await response.text();
-  const markdown = convertArticleToMd(html);
-
-  return markdown;
 }

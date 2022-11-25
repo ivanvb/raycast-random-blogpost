@@ -15,6 +15,12 @@
       "title": "Fetch random post",
       "description": "Fetches a random post and renders it as markdown.",
       "mode": "view"
+    },
+    {
+      "name": "viewFavorites",
+      "title": "View Favorites",
+      "description": "View Favorite Articles",
+      "mode": "view"
     }
   ],
   "dependencies": {

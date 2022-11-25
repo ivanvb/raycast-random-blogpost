@@ -31,3 +31,10 @@ function formatHtml(html: string) {
 export function convertArticleToMd(html: string) {
   return formatHtml(html);
 }
+
+export async function parseFetchResponse(response: Response) {
+  const html = await response.text();
+  const markdown = convertArticleToMd(html);
+
+  return markdown;
+}
