@@ -6,7 +6,7 @@ function transformHtml(html: string) {
   const url = $("[property='og:url']").attr("content");
   const author = $("header p").text();
   const title = $("h2");
-  title.after(`<p>${author}</p>`);
+  title.after(`<p>by ${author}</p>`);
 
   $("form").remove();
   $("header").remove();
