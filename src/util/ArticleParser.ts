@@ -1,7 +1,7 @@
 import { load } from "cheerio";
 import { NodeHtmlMarkdown } from "node-html-markdown";
 
-function transformHtml(html: string) {
+function formatHtml(html: string) {
   const $ = load(html);
   const url = $("[property='og:url']").attr("content") as string;
   const author = $("header p").text();
@@ -25,5 +25,5 @@ function transformHtml(html: string) {
 }
 
 export function convertArticleToMd(html: string) {
-  return transformHtml(html);
+  return formatHtml(html);
 }
